@@ -28,14 +28,22 @@ public class ContextContentsContentProvider extends AbstractIconLoader
 
   public static final class SynchronizeContentsListener implements ContextListener {
     private final EventList<Object> contents;
+    private final Context context;
 
-    public SynchronizeContentsListener(EventList<Object> contents) {
+    public SynchronizeContentsListener(Context context, EventList<Object> contents) {
+      this.context = context;
       this.contents = contents;
     }
 
     @Override
     public void contextChanged(Context source) {
-      EventListSync.synchronize(context, contents);
+      contents.getReadWriteLock().writeLock().lock();
+      try {
+        // we are not using the Context source here as this might actually be a child context. 
+        EventListSync.synchronize(context, contents);
+      } finally {
+        contents.getReadWriteLock().writeLock().unlock();
+      }
     }
   }
 
@@ -82,7 +90,7 @@ public class ContextContentsContentProvider extends AbstractIconLoader
         contents.add(contextContent);
       }
 
-      context.addContextChangeListener(new SynchronizeContentsListener(contents));
+      context.addContextChangeListener(new SynchronizeContentsListener(context, contents));
 
       return contents;
     }
