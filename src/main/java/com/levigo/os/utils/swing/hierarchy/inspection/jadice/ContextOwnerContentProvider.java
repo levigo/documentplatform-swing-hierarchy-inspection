@@ -1,31 +1,24 @@
 package com.levigo.os.utils.swing.hierarchy.inspection.jadice;
 
-import java.awt.image.BufferedImage;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.imageio.ImageIO;
 import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.StyledDocument;
 import javax.swing.tree.TreePath;
 
+import com.levigo.os.utils.swing.hierarchy.inspection.AbstractIconLoader;
 import com.levigo.util.base.glazedlists.EventList;
 import com.levigo.util.base.glazedlists.GlazedLists;
-import com.levigo.util.log.Logger;
-import com.levigo.util.log.LoggerFactory;
 import com.levigo.util.swing.action.Context;
 import com.levigo.util.swing.action.ContextListener;
 import com.levigo.util.swing.flextree.TreeContentProvider;
 import com.levigo.util.swing.flextree.TreeIconProvider;
 import com.levigo.util.swing.flextree.TreeLabelProvider;
 
-public class ContextOwnerContentProvider implements TreeContentProvider, TreeLabelProvider, TreeIconProvider {
-
-  private static final Logger LOG = LoggerFactory.getLogger(ContextOwnerContentProvider.class);
+public class ContextOwnerContentProvider extends AbstractIconLoader implements TreeContentProvider, TreeLabelProvider, TreeIconProvider {
 
   public static final class SynchronizeContentsListener implements ContextListener {
     private final EventList<Object> contents;
@@ -162,19 +155,6 @@ public class ContextOwnerContentProvider implements TreeContentProvider, TreeLab
       return contextOwnerIcon;
     }
     return null;
-  }
-
-  private Icon loadIcon(String path) {
-    Icon icon = null;
-    try {
-      BufferedImage image = ImageIO.read(getClass().getResource(path));
-      if (image != null) {
-        icon = new ImageIcon(image);
-      }
-    } catch (IOException e) {
-      LOG.error("Failed to load context owner icon", e);
-    }
-    return icon;
   }
 
 }

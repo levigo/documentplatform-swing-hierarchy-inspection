@@ -1,17 +1,11 @@
 package com.levigo.os.utils.swing.hierarchy.inspection;
 
-import java.awt.image.BufferedImage;
-import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.imageio.ImageIO;
 import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import javax.swing.tree.TreePath;
 
-import com.levigo.util.log.Logger;
-import com.levigo.util.log.LoggerFactory;
 import com.levigo.util.swing.flextree.TreeIconProvider;
 
 /**
@@ -24,8 +18,7 @@ import com.levigo.util.swing.flextree.TreeIconProvider;
  * <li>.png</li>
  * </ul>
  */
-public final class GenericTreeIconProvider implements TreeIconProvider {
-  private final Logger LOG = LoggerFactory.getLogger(TreeIconProvider.class);
+public final class GenericTreeIconProvider extends AbstractIconLoader implements TreeIconProvider {
   private final Map<String, Icon> iconCache = new HashMap<String, Icon>();
 
   private static final String[] EXTENSIONS = {
@@ -52,23 +45,14 @@ public final class GenericTreeIconProvider implements TreeIconProvider {
         final String baseFilename = "/icons/" + className.replace('.', '/');
 
         for (int i = 0; i < EXTENSIONS.length && icon == null; i++) {
-          URL res = getClass().getResource(baseFilename + "." + EXTENSIONS[i]);
-
-          if (res != null) {
-
-            try {
-              BufferedImage image = ImageIO.read(res);
-              icon = new ImageIcon(image);
-
-              iconCache.put(className, icon);
-
-            } catch (Exception e) {
-              LOG.error("failed to load icon for " + className + ". Resolved URL: " + res, e);
-              icon = null;
-            }
-
-          }
+          icon = loadIcon(baseFilename + "." + EXTENSIONS[i]);
         }
+        
+        if (icon != null) {
+          // put this icon into the icon cache
+          iconCache.put(className, icon);
+        }
+        
       }
 
       // prepare for the next run
