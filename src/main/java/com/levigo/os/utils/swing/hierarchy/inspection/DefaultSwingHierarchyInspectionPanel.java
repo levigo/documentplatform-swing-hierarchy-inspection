@@ -11,7 +11,7 @@ import com.levigo.os.utils.swing.hierarchy.inspection.component.ComponentTreeLab
 import com.levigo.os.utils.swing.hierarchy.inspection.component.ContainerTreeContentProvider;
 import com.levigo.os.utils.swing.hierarchy.inspection.component.JComponentNameLabelProvider;
 import com.levigo.os.utils.swing.hierarchy.inspection.jadice.ContextContentProvider;
-import com.levigo.os.utils.swing.hierarchy.inspection.jadice.ContextContentsContentProvider;
+import com.levigo.os.utils.swing.hierarchy.inspection.jadice.ContextOwnerContentProvider;
 
 
 public class DefaultSwingHierarchyInspectionPanel extends SwingHierarchyInspectionPanel {
@@ -29,7 +29,7 @@ public class DefaultSwingHierarchyInspectionPanel extends SwingHierarchyInspecti
     
     // levigo utils swing context inspection
     tree.addModule(new ContextContentProvider());
-    tree.addModule(new ContextContentsContentProvider());
+    tree.addModule(new ContextOwnerContentProvider());
     tree.addModule(new JComponentNameLabelProvider());
   }
 

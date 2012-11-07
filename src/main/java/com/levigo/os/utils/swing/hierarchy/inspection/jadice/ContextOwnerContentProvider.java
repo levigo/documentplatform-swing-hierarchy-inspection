@@ -24,9 +24,9 @@ import com.levigo.util.swing.flextree.TreeContentProvider;
 import com.levigo.util.swing.flextree.TreeIconProvider;
 import com.levigo.util.swing.flextree.TreeLabelProvider;
 
-public class ContextContentsContentProvider implements TreeContentProvider, TreeLabelProvider, TreeIconProvider {
+public class ContextOwnerContentProvider implements TreeContentProvider, TreeLabelProvider, TreeIconProvider {
 
-  private static final Logger LOG = LoggerFactory.getLogger(ContextContentsContentProvider.class);
+  private static final Logger LOG = LoggerFactory.getLogger(ContextOwnerContentProvider.class);
 
   public static final class SynchronizeContentsListener implements ContextListener {
     private final EventList<Object> contents;
