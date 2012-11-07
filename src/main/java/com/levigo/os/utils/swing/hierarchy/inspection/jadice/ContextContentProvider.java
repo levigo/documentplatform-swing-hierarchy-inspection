@@ -38,7 +38,7 @@ public class ContextContentProvider implements TreeContentProvider, TreeLabelPro
     private void doUpdate(Object newValue) {
       if (newValue == null) {
         // it is a remove. As we will only have a single element in the context list, it is save to
-        // simple clear it.
+        // simply clear it.
 
         contexts.clear();
 
