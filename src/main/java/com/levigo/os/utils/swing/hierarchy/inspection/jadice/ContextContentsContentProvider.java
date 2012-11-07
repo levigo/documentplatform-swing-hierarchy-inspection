@@ -1,14 +1,12 @@
 package com.levigo.os.utils.swing.hierarchy.inspection.jadice;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.swing.Icon;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.StyledDocument;
 import javax.swing.tree.TreePath;
 
 import com.levigo.os.utils.swing.hierarchy.inspection.AbstractIconLoader;
+import com.levigo.os.utils.swing.hierarchy.inspection.util.EventListSync;
 import com.levigo.util.base.glazedlists.BasicEventList;
 import com.levigo.util.base.glazedlists.EventList;
 import com.levigo.util.base.glazedlists.GlazedLists;
@@ -37,35 +35,7 @@ public class ContextContentsContentProvider extends AbstractIconLoader
 
     @Override
     public void contextChanged(Context source) {
-
-      synchronize(source, contents);
-    }
-
-    protected void synchronize(Iterable<Object> source, EventList<Object> target) {
-
-      final List<Object> sourceList = new ArrayList<Object>();
-
-      // first step: check if there are objects in the source, that are not in the target list.
-      for (Object s : source) {
-
-        if (!target.contains(s)) {
-          target.add(s);
-        }
-
-        // adding the elements from the iterable to the sourceList for use in the second step
-        sourceList.add(s);
-
-      }
-
-      // second step: Walk through all objects in the target list and check whether they exist
-      // on the source side
-      for (int i = 0; i < target.size(); i++) {
-
-        Object t = target.get(i);
-        if (!sourceList.contains(t)) {
-          target.remove(i);
-        }
-      }
+      EventListSync.synchronize(context, contents);
     }
   }
 
