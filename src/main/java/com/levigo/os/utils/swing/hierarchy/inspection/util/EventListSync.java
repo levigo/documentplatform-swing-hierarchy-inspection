@@ -47,13 +47,19 @@ public class EventListSync {
 
       // second step: Walk through all objects in the target list and check whether they exist
       // on the source side
+
+      final List<T> entriesToRemove = new ArrayList<T>();
+
       for (int i = 0; i < target.size(); i++) {
 
         T t = target.get(i);
         if (!sourceList.contains(t)) {
-          target.remove(i);
+          entriesToRemove.add(t);
         }
       }
+
+      if (entriesToRemove.size() > 0)
+        target.removeAll(entriesToRemove);
     }
   }
 
