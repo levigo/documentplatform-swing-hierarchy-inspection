@@ -11,9 +11,10 @@ public class ComponentMarshallerModule implements TreeContentMarshallingModule {
 
   @Override
   public QName getTagName(TreePath path) {
-    if (path.getLastPathComponent() instanceof JComponent) {
+    Object element = path.getLastPathComponent();
+    if (element instanceof JComponent || (element != null && element.getClass().getName().startsWith("javax.swing"))) {
       return Namespace.SWING.createQName("JComponent");
-    } else if (path.getLastPathComponent() instanceof Component) {
+    } else if (element instanceof Component) {
       return Namespace.AWT.createQName("Component");
     }
 
