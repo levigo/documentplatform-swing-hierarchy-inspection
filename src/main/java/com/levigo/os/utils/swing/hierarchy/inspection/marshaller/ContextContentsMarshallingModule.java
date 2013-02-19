@@ -6,8 +6,6 @@ import javax.xml.namespace.QName;
 
 import com.levigo.os.utils.swing.hierarchy.inspection.util.ContextInspector;
 import com.levigo.util.swing.action.Context;
-import com.levigo.util.swing.action.Context.Ancestors;
-import com.levigo.util.swing.action.Context.Children;
 
 
 public final class ContextContentsMarshallingModule implements TreeContentMarshallingModule {
@@ -105,10 +103,10 @@ public final class ContextContentsMarshallingModule implements TreeContentMarsha
   public void poulateAttributes(TreePath path, AttributeCallback callback) {
     if (ContextInspector.INSTANCE.isEnabled() && path.getLastPathComponent() instanceof Context) {
       final Context context = (Context) path.getLastPathComponent();
-      final Ancestors ancestorAggregation = ContextInspector.INSTANCE.getAncestorAggregation(context);
-      final Children childAggregation = ContextInspector.INSTANCE.getChildAggregation(context);
-      callback.addAttribute(Namespace.JADICE.createQName("ancestor-aggregation"), "" + ancestorAggregation);
-      callback.addAttribute(Namespace.JADICE.createQName("child-aggregation"), "" + childAggregation);
+      callback.addAttribute(Namespace.JADICE.createQName("ancestor-aggregation"),
+          "" + ContextInspector.INSTANCE.getAncestorAggregation(context));
+      callback.addAttribute(Namespace.JADICE.createQName("child-aggregation"),
+          "" + ContextInspector.INSTANCE.getChildAggregation(context));
 
     }
   }
