@@ -17,10 +17,9 @@ public class ContainerTreeContentProvider implements TreeContentProvider {
   @Override
   public EventList<? extends Object> getChildren(TreePath path) {
 
-    Container container = (Container) path.getLastPathComponent();
+    final Container container = (Container) path.getLastPathComponent();
 
     final BasicEventList<Component> children = new BasicEventList<Component>();
-
 
     // add all existing elements in the container to the event list
     children.addAll(Arrays.asList(container.getComponents()));
@@ -43,7 +42,7 @@ public class ContainerTreeContentProvider implements TreeContentProvider {
 
         children.getReadWriteLock().writeLock().lock();
         try {
-          Component[] components = e.getContainer().getComponents();
+          final Component[] components = e.getContainer().getComponents();
           int idx = -1;
           for (int i = 0; i < components.length; i++) {
             if (e.getChild() == components[i])

@@ -7,9 +7,10 @@ import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 
+import com.levigo.os.utils.swing.hierarchy.inspection.component.ComponentNameLabelProvider;
 import com.levigo.os.utils.swing.hierarchy.inspection.component.ComponentTreeLabelProvider;
 import com.levigo.os.utils.swing.hierarchy.inspection.component.ContainerTreeContentProvider;
-import com.levigo.os.utils.swing.hierarchy.inspection.component.JComponentNameLabelProvider;
+import com.levigo.os.utils.swing.hierarchy.inspection.component.JMenuTreeContentProvider;
 
 
 public class DefaultSwingHierarchyInspectionPanel extends SwingHierarchyInspectionPanel {
@@ -23,21 +24,23 @@ public class DefaultSwingHierarchyInspectionPanel extends SwingHierarchyInspecti
     // configure the default tree modules
     tree.addModule(new GenericTreeIconProvider());
     tree.addModule(new ContainerTreeContentProvider());
+    tree.addModule(new JMenuTreeContentProvider());
     tree.addModule(new ComponentTreeLabelProvider());
-    tree.addModule(new JComponentNameLabelProvider());
+    tree.addModule(new ComponentNameLabelProvider());
   }
 
 
   public static void main(String[] args) {
     SwingUtilities.invokeLater(new Runnable() {
+      @Override
       public void run() {
-        
+
         try {
           UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        } catch (Exception e) {
+        } catch (final Exception e) {
         }
-        
-        JFrame f = new JFrame();
+
+        final JFrame f = new JFrame();
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.getContentPane().setLayout(new BorderLayout());
         f.getContentPane().add(new DefaultSwingHierarchyInspectionPanel(f));
