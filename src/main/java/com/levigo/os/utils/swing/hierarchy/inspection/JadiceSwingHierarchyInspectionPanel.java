@@ -2,6 +2,7 @@ package com.levigo.os.utils.swing.hierarchy.inspection;
 
 import java.awt.Component;
 
+import com.levigo.os.utils.swing.hierarchy.inspection.jadice.ContextActiveStateLabelProvider;
 import com.levigo.os.utils.swing.hierarchy.inspection.jadice.ContextAggregationModeLabelProvider;
 import com.levigo.os.utils.swing.hierarchy.inspection.jadice.ContextChildrenContentsProvider;
 import com.levigo.os.utils.swing.hierarchy.inspection.jadice.ContextContentProvider;
@@ -20,6 +21,7 @@ public class JadiceSwingHierarchyInspectionPanel extends DefaultSwingHierarchyIn
     tree.addModule(new ContextOwnerContentProvider());
     tree.addModule(new ContextContentsContentProvider());
     tree.addModule(new ContextChildrenContentsProvider());
+    tree.addModule(new ContextActiveStateLabelProvider());
     tree.addModule(new ContextAggregationModeLabelProvider());
   }
 }
