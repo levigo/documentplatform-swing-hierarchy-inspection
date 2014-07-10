@@ -7,8 +7,8 @@ Requirements
 ------------
 * Maven 3 for building the project
 * levigo-utils swing module
-** This module is part of the levigo jadice application suite for which a valid license is necessary.
-** This module provides the flex tree feature which is used to build the hierarchy tree
+  * This module is part of the levigo jadice application suite for which a valid license is necessary.
+  * This module provides the flex tree feature which is used to build the hierarchy tree
 
 Usage
 -----
