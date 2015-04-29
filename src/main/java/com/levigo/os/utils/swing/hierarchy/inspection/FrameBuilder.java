@@ -10,8 +10,10 @@ package com.levigo.os.utils.swing.hierarchy.inspection;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
+import java.awt.Container;
 import java.awt.Dimension;
-import java.awt.Frame;
+
+import javax.swing.JFrame;
 
 /**
  * A simple fluent API for building Hierarchy Inspection Frames. After constructing an instance,
@@ -73,11 +75,12 @@ public class FrameBuilder {
   }
 
 
-  public Frame buildFor(Component toBeInspected) {
+  public JFrame buildFor(Component toBeInspected) {
     final SwingHierarchyInspectionPanel panel = buildPanel(toBeInspected);
-    final Frame frame = new Frame(name);
-    frame.setLayout(new BorderLayout());
-    frame.add(panel, BorderLayout.CENTER);
+    final JFrame frame = new JFrame(name);
+    Container contentPane = frame.getContentPane();
+    contentPane.setLayout(new BorderLayout());
+    contentPane.add(panel, BorderLayout.CENTER);
     frame.setSize(size);
     return frame;
   }
