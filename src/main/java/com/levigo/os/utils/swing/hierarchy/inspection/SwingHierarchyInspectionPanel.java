@@ -6,7 +6,7 @@ import java.awt.Component;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-import com.levigo.util.swing.flextree.FlexibleTree;
+import org.jadice.util.swing.flextree.FlexibleTree;
 
 public class SwingHierarchyInspectionPanel extends JPanel {
 

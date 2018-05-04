@@ -8,9 +8,9 @@ import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
-import com.levigo.util.log.Logger;
-import com.levigo.util.log.LoggerFactory;
-import com.levigo.util.swing.flextree.TreeIconProvider;
+import org.jadice.util.log.Logger;
+import org.jadice.util.log.LoggerFactory;
+import org.jadice.util.swing.flextree.TreeIconProvider;
 
 /**
  * Utility class to load icons from the classpath. This class is commonly used by

@@ -9,7 +9,7 @@ import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
 import javax.swing.tree.TreePath;
 
-import com.levigo.util.swing.flextree.TreeLabelProvider;
+import org.jadice.util.swing.flextree.TreeLabelProvider;
 
 public class ComponentNameLabelProvider implements TreeLabelProvider {
 

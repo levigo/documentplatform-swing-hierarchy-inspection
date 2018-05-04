@@ -8,13 +8,14 @@ import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
 import javax.swing.tree.TreePath;
 
+import org.jadice.util.base.Disposable;
+import org.jadice.util.swing.action.context.Context;
+import org.jadice.util.swing.action.context.ContextListener;
+import org.jadice.util.swing.flextree.DynamicTreeModule;
+import org.jadice.util.swing.flextree.FlexibleTree;
+import org.jadice.util.swing.flextree.TreeLabelProvider;
+
 import com.levigo.os.utils.swing.hierarchy.inspection.util.ContextInspector;
-import com.levigo.util.base.Disposable;
-import com.levigo.util.swing.action.Context;
-import com.levigo.util.swing.action.ContextListener;
-import com.levigo.util.swing.flextree.DynamicTreeModule;
-import com.levigo.util.swing.flextree.FlexibleTree;
-import com.levigo.util.swing.flextree.TreeLabelProvider;
 
 /**
  * For each {@link Context} element displayed in a {@link FlexibleTree}, this class enriches the
@@ -49,7 +50,7 @@ public class ContextActiveStateLabelProvider implements TreeLabelProvider, Dynam
   }
 
   @Override
-  public Disposable registerChangeListener(TreePath treePath, ChangeListener callback) {
+  public Disposable registerTreeCallback(TreePath treePath, TreeCallback callback) {
     if (treePath.getLastPathComponent() instanceof Context) {
       Context ctx = (Context) treePath.getLastPathComponent();
       return new ContextChangedCallback(ctx, callback);
@@ -61,9 +62,9 @@ public class ContextActiveStateLabelProvider implements TreeLabelProvider, Dynam
   private static class ContextChangedCallback implements Disposable, ContextListener {
 
     private final Context ctx;
-    private final ChangeListener callback;
+    private final TreeCallback callback;
 
-    public ContextChangedCallback(Context ctx, ChangeListener callback) {
+    public ContextChangedCallback(Context ctx, TreeCallback callback) {
       this.ctx = ctx;
       this.callback = callback;
       ctx.addContextChangeListener(this);

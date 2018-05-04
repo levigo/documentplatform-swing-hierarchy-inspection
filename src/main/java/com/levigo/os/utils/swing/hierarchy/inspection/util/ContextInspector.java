@@ -4,9 +4,9 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.Collections;
 
-import com.levigo.util.log.Logger;
-import com.levigo.util.log.LoggerFactory;
-import com.levigo.util.swing.action.Context;
+import org.jadice.util.log.Logger;
+import org.jadice.util.log.LoggerFactory;
+import org.jadice.util.swing.action.context.Context;
 
 /**
  * {@link Context} inspection utility which has access to some private details about the

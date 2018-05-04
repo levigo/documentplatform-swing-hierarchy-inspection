@@ -5,18 +5,19 @@ import javax.swing.text.BadLocationException;
 import javax.swing.text.StyledDocument;
 import javax.swing.tree.TreePath;
 
+import org.jadice.util.glazedlists.BasicEventList;
+import org.jadice.util.glazedlists.EventList;
+import org.jadice.util.glazedlists.GlazedLists;
+import org.jadice.util.log.Logger;
+import org.jadice.util.log.LoggerFactory;
+import org.jadice.util.swing.action.context.Context;
+import org.jadice.util.swing.action.context.ContextListener;
+import org.jadice.util.swing.flextree.TreeContentProvider;
+import org.jadice.util.swing.flextree.TreeIconProvider;
+import org.jadice.util.swing.flextree.TreeLabelProvider;
+
 import com.levigo.os.utils.swing.hierarchy.inspection.AbstractIconLoader;
 import com.levigo.os.utils.swing.hierarchy.inspection.util.EventListSync;
-import com.levigo.util.base.glazedlists.BasicEventList;
-import com.levigo.util.base.glazedlists.EventList;
-import com.levigo.util.base.glazedlists.GlazedLists;
-import com.levigo.util.log.Logger;
-import com.levigo.util.log.LoggerFactory;
-import com.levigo.util.swing.action.Context;
-import com.levigo.util.swing.action.ContextListener;
-import com.levigo.util.swing.flextree.TreeContentProvider;
-import com.levigo.util.swing.flextree.TreeIconProvider;
-import com.levigo.util.swing.flextree.TreeLabelProvider;
 
 public class ContextContentsContentProvider extends AbstractIconLoader
     implements

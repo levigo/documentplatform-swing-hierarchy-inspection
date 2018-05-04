@@ -1,12 +1,13 @@
 package com.levigo.os.utils.swing.hierarchy.inspection.util;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import javax.swing.JLabel;
 
+import org.jadice.util.swing.action.context.Context;
 import org.junit.Test;
 
-import com.levigo.util.swing.action.Context;
 
 public class ContextInspectorTest {
   @Test

@@ -11,9 +11,9 @@ package com.levigo.os.utils.swing.hierarchy.inspection.component;
 import javax.swing.JMenu;
 import javax.swing.tree.TreePath;
 
-import com.levigo.util.base.glazedlists.EventList;
-import com.levigo.util.base.glazedlists.GlazedLists;
-import com.levigo.util.swing.flextree.TreeContentProvider;
+import org.jadice.util.glazedlists.EventList;
+import org.jadice.util.glazedlists.GlazedLists;
+import org.jadice.util.swing.flextree.TreeContentProvider;
 
 public class JMenuTreeContentProvider implements TreeContentProvider {
 

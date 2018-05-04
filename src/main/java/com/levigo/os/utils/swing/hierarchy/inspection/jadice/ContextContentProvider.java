@@ -8,11 +8,11 @@ import javax.swing.text.BadLocationException;
 import javax.swing.text.StyledDocument;
 import javax.swing.tree.TreePath;
 
-import com.levigo.util.base.glazedlists.BasicEventList;
-import com.levigo.util.base.glazedlists.EventList;
-import com.levigo.util.swing.action.Context;
-import com.levigo.util.swing.flextree.TreeContentProvider;
-import com.levigo.util.swing.flextree.TreeLabelProvider;
+import org.jadice.util.glazedlists.BasicEventList;
+import org.jadice.util.glazedlists.EventList;
+import org.jadice.util.swing.action.context.Context;
+import org.jadice.util.swing.flextree.TreeContentProvider;
+import org.jadice.util.swing.flextree.TreeLabelProvider;
 
 public class ContextContentProvider implements TreeContentProvider, TreeLabelProvider {
 

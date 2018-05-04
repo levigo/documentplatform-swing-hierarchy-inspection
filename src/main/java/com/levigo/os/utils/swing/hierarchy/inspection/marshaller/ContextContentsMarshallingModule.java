@@ -4,8 +4,9 @@ import javax.swing.JComponent;
 import javax.swing.tree.TreePath;
 import javax.xml.namespace.QName;
 
+import org.jadice.util.swing.action.context.Context;
+
 import com.levigo.os.utils.swing.hierarchy.inspection.util.ContextInspector;
-import com.levigo.util.swing.action.Context;
 
 
 public final class ContextContentsMarshallingModule implements TreeContentMarshallingModule {

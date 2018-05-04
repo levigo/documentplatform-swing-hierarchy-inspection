@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import com.levigo.util.base.glazedlists.EventList;
+import org.jadice.util.glazedlists.EventList;
 
 /**
  * A collection of utility methods to synchronize {@link EventList}s with other {@link Collection}

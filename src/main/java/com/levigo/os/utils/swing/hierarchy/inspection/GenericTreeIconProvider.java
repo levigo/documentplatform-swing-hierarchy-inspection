@@ -6,7 +6,7 @@ import java.util.Map;
 import javax.swing.Icon;
 import javax.swing.tree.TreePath;
 
-import com.levigo.util.swing.flextree.TreeIconProvider;
+import org.jadice.util.swing.flextree.TreeIconProvider;
 
 /**
  * A {@link TreeIconProvider} that will use the class name of an element in the tree to search for

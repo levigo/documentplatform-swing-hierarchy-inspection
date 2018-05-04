@@ -8,11 +8,12 @@ import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
 import javax.swing.tree.TreePath;
 
+import org.jadice.util.swing.action.context.Context;
+import org.jadice.util.swing.action.context.Context.Ancestors;
+import org.jadice.util.swing.action.context.Context.Children;
+import org.jadice.util.swing.flextree.TreeLabelProvider;
+
 import com.levigo.os.utils.swing.hierarchy.inspection.util.ContextInspector;
-import com.levigo.util.swing.action.Context;
-import com.levigo.util.swing.action.Context.Ancestors;
-import com.levigo.util.swing.action.Context.Children;
-import com.levigo.util.swing.flextree.TreeLabelProvider;
 
 public class ContextAggregationModeLabelProvider implements TreeLabelProvider {
 
